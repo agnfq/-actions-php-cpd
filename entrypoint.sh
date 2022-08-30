@@ -45,6 +45,6 @@ while [ $i -le $j ]
 
 echo "/phpcd $CMD_STRING"
 
-/phpcd $CMD_STRING
+/phpcpd $CMD_STRING
 
 echo "done"
