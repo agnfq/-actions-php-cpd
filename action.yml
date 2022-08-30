@@ -9,7 +9,7 @@ inputs:
     required: false
     default: '.'
   exclude:
-    description: 'To exclude a directory'
+    description: 'To exclude directories, comma separated string'
     required: false
 runs:
   using: 'docker'

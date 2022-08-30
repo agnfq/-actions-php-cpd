@@ -14,6 +14,13 @@ PHP_FULL_VERSION=$(php -r 'echo phpversion();')
 #else
 #  EXCLUDE="--exclude $2"
 #fi
+#
+#echo "PHP Version : ${PHP_FULL_VERSION}"
+#echo "/phpcpd ${ARGS} $EXCLUDE"
+#
+#/phpcpd ${ARGS} $EXCLUDE
+#
+#echo "done"
 
 i=1;
 j=$#;
@@ -21,25 +28,23 @@ CMD_STRING=""
 while [ $i -le $j ]
   do
     case $1 in
-
       --exclude|-e)
         shift
-        CMD_STRING=CMD_STRING+" --excluding '${1}'"
+        for k in $(echo $1 | tr "," "\n")
+        do
+          CMD_STRING+=" --excluding '$k'"
+        done
         ;;
-
       *)
-        CMD_STRING=CMD_STRING+" '${1}'"
+        CMD_STRING+=" ${1}"
         ;;
-
     esac
     i=$((i + 1));
     shift 1;
   done
 
 echo "/phpcd $CMD_STRING"
-echo "PHP Version : ${PHP_FULL_VERSION}"
-echo "/phpcpd ${ARGS} $EXCLUDE"
 
-/phpcpd ${ARGS} $EXCLUDE
+/phpcd $CMD_STRING
 
 echo "done"
