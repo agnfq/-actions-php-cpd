@@ -30,11 +30,7 @@ while [ $i -le $j ]
     case $1 in
       --exclude|-e)
         shift
-        for k in $(echo $1 | tr "," "\n")
-        do
-          echo "doing $k"
-          CMD_STRING="$CMD_STRING --excluding $k"
-        done
+        CMD_STRING="$CMD_STRING --excluding $1"
         ;;
       *)
         CMD_STRING="$CMD_STRING $1"
