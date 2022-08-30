@@ -18,4 +18,5 @@ fi
 echo "## Running PHP Copy Paste Detector with ${ARGS} ${EXCLUDE}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
 
-/phpcpd ${ROOT} ${EXCLUDE}
+#/phpcpd ${ROOT} ${EXCLUDE}
+CMD['/phpcd', $ARGS, '--exclude', $EXCLUDE]
