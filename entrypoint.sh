@@ -12,4 +12,4 @@ fi
 echo "## Running PHP Copy Paste Detector with ${ARGS}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
 
-/phpcpd ${ARGS}
+/phpcpd ARGS
