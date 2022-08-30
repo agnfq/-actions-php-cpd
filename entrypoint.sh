@@ -9,8 +9,6 @@ if [ -z "$INPUT_ARGS" ];
 then
   # assing the source directory by default
   INITIAL_ARGS='./src'
-else
-  INITIAL_ARGS='.'
 fi
 
 INITIAL_EXCLUDE="$INPUT_EXCLUDE"
