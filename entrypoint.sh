@@ -20,7 +20,7 @@ then
   # assing the ignore directory by default
   INITIAL_EXCLUDE=''
 else
-    INITIAL_EXCLUDE="$INITIAL_EXCLUDE --exclude $INPUT_EXCLUDE"
+    INITIAL_EXCLUDE="--exclude $INPUT_EXCLUDE"
 fi
 
 echo "PHP Version : ${PHP_FULL_VERSION}"
