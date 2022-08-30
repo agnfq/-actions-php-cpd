@@ -1,6 +1,6 @@
 FROM php:7.3-cli
 
-LABEL version="1.0"
+LABEL version="1.1"
 LABEL repository="https://github.com/agnfq/actions-php-cpd"
 LABEL homepage="https://github.com/agnfq/actions-php-cpd"
 LABEL maintainer="Andy Gonzales <andres.gonzales@nfq.asia>"
