@@ -15,7 +15,7 @@ else
   EXCLUDE="--exclude $2"
 fi
 
-echo "## Running PHP Copy Paste Detector with ${ARGS} ${EXCLUDE}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
+echo "/phpcpd ${ROOT} --exclude {$EXCLUDE}"
 
 /phpcpd ${ROOT} --exclude ${EXCLUDE}
