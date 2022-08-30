@@ -1,9 +1,9 @@
 FROM php:7.3-cli
 
 LABEL version="1.0"
-LABEL repository="https://github.com/StephaneBour/actions-php-cpd"
-LABEL homepage="https://github.com/StephaneBour/actions-php-cpd"
-LABEL maintainer="Stéphane Bour <stephane.bour@gmail.com>"
+LABEL repository="https://github.com/agnfq/actions-php-cpd"
+LABEL homepage="https://github.com/agnfq/actions-php-cpd"
+LABEL maintainer="Andy Gonzales <andres.gonzales@nfq.asia>"
 
 RUN curl -L https://phar.phpunit.de/phpcpd.phar -o /phpcpd
 
