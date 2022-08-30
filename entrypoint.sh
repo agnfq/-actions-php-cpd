@@ -19,4 +19,4 @@ echo "## Running PHP Copy Paste Detector with ${ARGS} ${EXCLUDE}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
 
 #/phpcpd ${ROOT} ${EXCLUDE}
-CMD['/phpcd', $ARGS, '--exclude', $EXCLUDE]
+ENTRYPOINT ['/phpcd', $ARGS, '--exclude', $EXCLUDE]
