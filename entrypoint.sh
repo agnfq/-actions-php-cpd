@@ -32,11 +32,11 @@ while [ $i -le $j ]
         shift
         for k in $(echo $1 | tr "," "\n")
         do
-          CMD_STRING+=" --excluding '$k'"
+          CMD_STRING="$CMD_STRING --excluding '$k'"
         done
         ;;
       *)
-        CMD_STRING+=" ${1}"
+        CMD_STRING="$CMD_STRING '$1'"
         ;;
     esac
     i=$((i + 1));
