@@ -5,16 +5,22 @@ PHP_FULL_VERSION=$(php -r 'echo phpversion();')
 
 INITIAL_ARGS="$INPUT_ARGS"
 
-if [ -z "$INPUT_ARGS" ]; then
+if [ -z "$INPUT_ARGS" ];
+then
   # assing the source directory by default
   INITIAL_ARGS='./src'
+else
+  INITIAL_ARGS='.'
 fi
 
 INITIAL_EXCLUDE="$INPUT_EXCLUDE"
 
-if [ -z "$INPUT_EXCLUDE" ]; then
+if [ -z "$INPUT_EXCLUDE" ];
+then
   # assing the ignore directory by default
   INITIAL_EXCLUDE=''
+else
+    INITIAL_EXCLUDE="$INITIAL_EXCLUDE --exclude $INPUT_EXCLUDE"
 fi
 
 echo "PHP Version : ${PHP_FULL_VERSION}"
