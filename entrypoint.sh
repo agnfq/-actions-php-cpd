@@ -30,17 +30,17 @@ while [ $i -le $j ]
     case $1 in
       --exclude|-e)
         shift
-        CMD_STRING="$CMD_STRING --excluding $1"
+        CMD_STRING="adde $CMD_STRING --excluding $1"
         ;;
       *)
-        CMD_STRING="$CMD_STRING $1"
+        CMD_STRING="add* $CMD_STRING $1"
         ;;
     esac
     i=$((i + 1));
     shift 1;
   done
 
-echo "/phpcd $CMD_STRING"
+echo "/phpcpd $CMD_STRING"
 
 /phpcpd $CMD_STRING
 
