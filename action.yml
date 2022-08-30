@@ -8,13 +8,8 @@ inputs:
     description: 'Arguments to pass to phpcpd'
     required: false
     default: '.'
-  exclude:
-    description: 'To exclude a directory'
-    required: false
-    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.args }}
-    - ${{ inputs.exclude }}
