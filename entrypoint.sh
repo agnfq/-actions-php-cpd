@@ -16,6 +16,8 @@ else
 fi
 
 echo "PHP Version : ${PHP_FULL_VERSION}"
-echo "/phpcpd ${ROOT} --exclude {$EXCLUDE}"
+echo "/phpcpd ${ARGS} {$EXCLUDE}"
 
-/phpcpd ${ROOT} --exclude ${EXCLUDE}
+/phpcpd ${ARGS} ${EXCLUDE}
+
+echo "done"
