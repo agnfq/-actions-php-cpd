@@ -8,19 +8,20 @@ case $1 in
          shift
          echo "Root dir: $1"
          ROOT="$1";
+         EXCLUDE="";
          ;;
      --exclude|-e)
          shift
-         echo "Excluding: $1"
-         EXCLUDE="--exclude $1"
+         echo "Excluding: $1";
+         ROOT="./src";
+         EXCLUDE="--exclude $1";
          shift
          ;;
      *)
-        show_usage
         ;;
 esac
 
-echo "## Running PHP Copy Paste Detector with ${ARGS} ${EXCLUDE}"
+echo "## Running PHP Copy Paste Detector with ${ROOT} ${EXCLUDE}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
 
 /phpcpd ${ROOT} ${EXCLUDE}
