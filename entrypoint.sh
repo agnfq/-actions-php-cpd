@@ -3,13 +3,24 @@ set -e
 
 PHP_FULL_VERSION=$(php -r 'echo phpversion();')
 
-if [ -z "$1" ]; then
-  ARGS="."
-else
-  ARGS=$1
-fi
+case $1 in
+     --root|-r)
+         shift
+         echo "Root dir: $1"
+         ROOT="$1";
+         ;;
+     --exclude|-e)
+         shift
+         echo "Excluding: $1"
+         EXCLUDE="--exclude $1"
+         shift
+         ;;
+     *)
+        show_usage
+        ;;
+esac
 
-echo "## Running PHP Copy Paste Detector with ${ARGS}"
+echo "## Running PHP Copy Paste Detector with ${ARGS} ${EXCLUDE}"
 echo "PHP Version : ${PHP_FULL_VERSION}"
 
-/phpcpd ARGS
+/phpcpd ${ROOT} ${EXCLUDE}
