@@ -2,46 +2,24 @@
 set -e
 
 PHP_FULL_VERSION=$(php -r 'echo phpversion();')
-#
-#if [ -z "$1" ]; then
-#  ARGS="."
-#else
-#  ARGS="$1"
-#fi
-#
-#if [ -z "$2" ]; then
-#  EXCLUDE="."
-#else
-#  EXCLUDE="--exclude $2"
-#fi
-#
-#echo "PHP Version : ${PHP_FULL_VERSION}"
-#echo "/phpcpd ${ARGS} $EXCLUDE"
-#
-#/phpcpd ${ARGS} $EXCLUDE
-#
-#echo "done"
 
-i=1;
-j=$#;
-CMD_STRING=""
-while [ $i -le $j ]
-  do
-    case $1 in
-      --exclude|-e)
-        shift
-        CMD_STRING="adde $CMD_STRING --excluding $1"
-        ;;
-      *)
-        CMD_STRING="add* $CMD_STRING $1"
-        ;;
-    esac
-    i=$((i + 1));
-    shift 1;
-  done
+INITIAL_ARGS="$INPUT_ARGS"
 
-echo "/phpcpd $CMD_STRING"
+if [ -z "$INPUT_ARGS" ]; then
+  # assing the source directory by default
+  INITIAL_ARGS='./src'
+fi
 
-/phpcpd $CMD_STRING
+INITIAL_EXCLUDE="$INPUT_EXCLUDE"
+
+if [ -z "$INPUT_EXCLUDE" ]; then
+  # assing the ignore directory by default
+  INITIAL_EXCLUDE=''
+fi
+
+echo "PHP Version : ${PHP_FULL_VERSION}"
+echo "/phpcpd ${INITIAL_ARGS} $INITIAL_EXCLUDE"
+
+/phpcpd ${INITIAL_ARGS} $INITIAL_EXCLUDE
 
 echo "done"
